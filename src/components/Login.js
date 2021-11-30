@@ -9,9 +9,7 @@ const AccountLogin = () => {
             <input type="password"></input>
         </div>
         <div className="signUp">
-            <h2>
-                New here? Sign up!
-            </h2>
+            <h2> New here? Sign up! </h2>
             <button>Sign up</button>
         </div>
         </>
