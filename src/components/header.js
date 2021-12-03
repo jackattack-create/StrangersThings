@@ -1,9 +1,7 @@
 import React from 'react'
 
 const SiteHeader = () => {
-    return (
-        <>
-            <header className="site-header">
+    return ( <header className="site-header">
                 <h3>Stranger's Things</h3>
 
                 <nav>
@@ -13,7 +11,7 @@ const SiteHeader = () => {
                 </nav>
             </header>
         
-        </>
+      
     )
 }
 

@@ -1,0 +1,48 @@
+
+
+.search-tab {
+    height: 53px;
+    border-bottom: 2px solid #333;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 5px;
+}
+
+.search-tab input {
+    height: 51px;
+    border: none;
+    width: 90%;
+    padding: 0;
+    padding-left: 10px;
+} 
+
+.search-tab button {
+    text-decoration: none;
+    height: 53px;
+
+    background-color: #fff;
+    
+    border:none;
+    border-left: 2px solid #333;
+    width: 10%;
+    margin: 0;
+}
+
+.search-tab button:hover {
+    background-color: orange;
+}
+
+.searchTerm-title {
+    height: 20px;
+    
+}
+
+.displayed-posts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

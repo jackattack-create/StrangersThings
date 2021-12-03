@@ -1,0 +1,43 @@
+.post {
+  width: 240px;
+  height: 360px;
+  border: 2px solid #333;
+  padding: 5px;
+  display: flex;
+  flex-direction:column;
+}
+
+.post-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* min-height: 20px;
+  max-height: 80px; */
+  border-bottom: 2px solid #333;
+}
+
+.post-info {
+  height: 300px;
+  display:flex;
+  flex-direction:column;
+}
+
+.post-price {
+    height: 80px;
+    margin-top: 5px;
+}
+
+.post-desc {
+    margin-top: 5px;
+    height: 150px;
+}
+
+.post-info button {
+    width: 100%;
+    border: 2px solid #333;
+    background-color: #fff;
+}
+
+.post-info button:hover {
+    background-color:orange;
+}
