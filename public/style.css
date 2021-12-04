@@ -44,25 +44,7 @@
   background-color: orange;
 }
 
-.account {
-  width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 480px;
-}
 
-.account-inputs {
-  height: 360px;
-}
-
-.account-inputs input {
-  width: 100%;
-  height: 20px;
-}
-
-.other-box {
-  height: 120px;
-}
 
 button {
   width: 100px;

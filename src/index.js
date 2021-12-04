@@ -8,27 +8,51 @@ import {
 import { AccountLogin, 
   Posts, 
   SiteHeader,
-Register } from "./components";
+  Register 
+} from "./components";
 
 import { callAPI } from "./api";
 
-const App = (props) => {
+const App = () => {
 
   const [posts, setPosts] = useState([])
+  const [token, setToken] = useState('')
+  const [userData, setUserData] = useState({})
 
-const fetchPosts = async () => {
-  const {
-    data: { posts },
-  } = await callAPI({
-    url: '/posts',
-  });
-  return posts;
-}
+  const fetchUserData = async (token) => {
+    const { data } = await callAPI({
+      url: '/users/me',
+      token,
+    });
+    return data;
+  };
 
-useEffect(async () => {
-  const posts = await fetchPosts();
-  setPosts(posts)
-}, [])
+  const fetchPosts = async () => {
+    const {
+      data: { posts },
+    } = await callAPI({
+      url: '/posts',
+    });
+    return posts;
+  }
+
+  useEffect(async () => {
+  
+    if (!token) {
+      setToken(localStorage.getItem('token'));
+      return;
+    }
+    const data = await fetchUserData(token);
+    if (data && data.username) {
+      setUserData(data);
+    }
+  }, [token]);
+
+  useEffect(async () => {
+    const posts = await fetchPosts();
+    setPosts(posts)
+
+  }, [])
 
   return (
     <>
@@ -38,8 +62,11 @@ useEffect(async () => {
         <Route exact path="/posts">
           <Posts posts={posts}/>
         </Route>
-        <Route exact path="/">
-          <Register />
+        <Route path="/register">
+          <Register 
+            setToken={setToken}
+            setUserData={setUserData}
+          />
         </Route>
         <Route path="/signIn">
           <AccountLogin />

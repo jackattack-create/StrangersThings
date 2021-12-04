@@ -17,7 +17,7 @@
     border: none;
     width: 90%;
     padding: 0;
-    padding-left: 10px;
+    padding-left: 20px;
 } 
 
 .search-tab button {
@@ -36,13 +36,13 @@
     background-color: orange;
 }
 
-.searchTerm-title {
-    height: 20px;
-    
+div.searchTerm-title {
+    height: 60px;
+    padding-left: 20px;
 }
 
 .displayed-posts {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
 }

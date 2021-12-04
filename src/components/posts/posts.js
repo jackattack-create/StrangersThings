@@ -37,9 +37,12 @@ const Posts = ({ posts }) => {
             ></input>
             <button>Search</button>
         </div>
-        <h1 className="searchTerm-title">
+        <div className="searchTerm-title">
+          <h1 >
             {searchTerm}
           </h1>
+        </div>
+        
         <div className="displayed-posts">
           
           {postsToDisplay.length ? (
