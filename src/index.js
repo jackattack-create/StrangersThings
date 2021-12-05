@@ -4,11 +4,15 @@ import {
   BrowserRouter as Router,
   Route,
   BrowserRouter,
+  Switch
 } from "react-router-dom";
 import { AccountLogin, 
-  Posts, 
+  Posts,
+  SinglePost, 
   SiteHeader,
-  Register 
+  Register,
+  NewPost,
+  Account 
 } from "./components";
 
 import { callAPI } from "./api";
@@ -58,20 +62,58 @@ const App = () => {
     <>
       <BrowserRouter>
 
-        <SiteHeader />
-        <Route exact path="/posts">
-          <Posts posts={posts}/>
-        </Route>
-        <Route path="/register">
-          <Register 
-            setToken={setToken}
-            setUserData={setUserData}
-          />
-        </Route>
-        <Route path="/signIn">
-          <AccountLogin />
-        </Route>
-
+        <SiteHeader 
+          token={token}
+        />
+        <Switch>
+          <Route exact path="/">
+            {userData.username && <div>Welcome Back {userData.username}</div>}
+          </Route>
+          <Route exact path="/posts">
+            <Posts posts={posts}/>
+          </Route>
+          <Route path="/posts/:postId">
+            <SinglePost 
+              token={token}
+              posts={posts}
+            />
+            <Route path="/posts/:postId/edit">
+              <NewPost
+                token={token}
+                setPosts={setPosts}
+                posts={posts}
+                action="edit"
+              />
+            </Route>
+            <Route path="/posts/new">
+              <NewPost 
+                token={token}
+                posts={posts}
+                setPosts={setPosts}
+                action="add"
+              />
+            </Route>
+          </Route>
+          <Route path="/register">
+            <Register 
+              setToken={setToken}
+              setUserData={setUserData}
+            />
+          </Route>
+          <Route path="/signIn">
+            <AccountLogin 
+              setToken={setToken}
+              setUserData={setUserData}
+            />
+          </Route>
+          <Route exact path='/account'>
+            <Account 
+              token={token}
+              userData={userData}
+              posts={posts}
+            />
+          </Route>
+        </Switch>
       </BrowserRouter>
     </>
   );

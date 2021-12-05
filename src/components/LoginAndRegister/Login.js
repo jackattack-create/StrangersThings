@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { callAPI } from "../../api";
 
 import './LogAndReg.css'
 
-const AccountLogin = () => {
+const AccountLogin = ({ setToken, setUserData }) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -13,11 +13,10 @@ const AccountLogin = () => {
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-      console.log(username, password);
   
       try {
         const data = await callAPI({
-          url: `/users/register`,
+          url: `/users/login`,
           body: {
             user: {
               username,
@@ -26,11 +25,9 @@ const AccountLogin = () => {
           },
           method: "POST",
         });
-        console.log(data);
   
         const token = data?.data?.token;
   
-        console.log(token);
   
         if (token) {
           localStorage.setItem("token", token);
@@ -65,12 +62,14 @@ const AccountLogin = () => {
                 setPassword(event.target.value);
               }}
             ></input>
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
           </form>
           <div className="other-box">
             <h3>New Here?</h3>
             <h3>Sign up here!</h3>
-            <button>Register</button>
+            <Link to={`/register`}>
+                <button>Register</button>
+            </Link>
           </div>
         </div>
       );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { callAPI } from "../../api";
 
 import './LogAndReg.css'
@@ -36,6 +36,7 @@ const Register = ({ setToken, setUserData }) => {
         setUsername("");
         setPassword("");
         setToken(token);
+        //this is the part that pushes you to a new page
         history.push("/");
       }
     } catch (error) {
@@ -69,7 +70,9 @@ const Register = ({ setToken, setUserData }) => {
       <div className="other-box">
         <h3>Already a user?</h3>
         <h3>Sign in here!</h3>
-        <button>Sign in</button>
+        <Link to={`/signIn`}>
+          <button>Sign in</button>
+        </Link>
       </div>
     </div>
   );

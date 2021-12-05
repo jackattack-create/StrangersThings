@@ -1,0 +1,63 @@
+.newPostPage {
+    width: 640px;
+    margin: 20px auto 0 auto;
+
+    height: 600px;
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+
+    border: 2px solid #333;
+    border-radius: 25px;
+
+}
+
+form {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+input {
+    width: 80%;
+    padding-left: 10px;
+
+    border: 2px solid #333;
+    height: 30px;
+}
+
+.newDescription input{
+    height: 300px;
+}
+
+.willDeliver {
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+}
+
+.willDeliver input {
+    height: 30px;
+    width: 30px;
+    border: 2px solid #333;
+}
+
+button {
+    width: 200px;
+    
+    border: 2px solid #333;
+
+    padding: 20px;
+    border-radius: 25px;
+
+    background-color: #fff;
+}
+
+button:hover {
+    background-color: orange;
+}

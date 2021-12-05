@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useHistory} from 'react-router-dom'
 import { Post } from "../postItems";
 import './posts.css'
 
@@ -22,6 +23,7 @@ const searchedPosts = (post, searchTerm) => {
 
 const Posts = ({ posts }) => {
   const [searchTerm, setSearchTerm] = useState('')
+  const history = useHistory();
   const postsToDisplay = posts.filter((post) => searchedPosts(post, searchTerm));
 
   return (
@@ -47,7 +49,10 @@ const Posts = ({ posts }) => {
           
           {postsToDisplay.length ? (
           postsToDisplay.map((post) => (
-            <Post post={post}/>
+            <Post 
+            post={post}
+            history={history}
+            />
           ))
         ) : (
           <div>No posts to display</div>
