@@ -12,7 +12,7 @@ import { AccountLogin,
   SiteHeader,
   Register,
   NewPost,
-  Account 
+  Messages 
 } from "./components";
 
 import { callAPI } from "./api";
@@ -72,11 +72,6 @@ const App = () => {
           <Route exact path="/posts">
             <Posts posts={posts}/>
           </Route>
-          <Route path="/posts/:postId">
-            <SinglePost 
-              token={token}
-              posts={posts}
-            />
             <Route path="/posts/:postId/edit">
               <NewPost
                 token={token}
@@ -86,14 +81,23 @@ const App = () => {
               />
             </Route>
             <Route path="/posts/new">
-              <NewPost 
+             {token ? <NewPost 
                 token={token}
                 posts={posts}
                 setPosts={setPosts}
                 action="add"
-              />
+              /> : ''
+             }
             </Route>
+
+            <Route path="/posts/:postId">
+            <SinglePost 
+              userData={userData}
+              token={token}
+              posts={posts}
+            />
           </Route>
+          
           <Route path="/register">
             <Register 
               setToken={setToken}
@@ -106,11 +110,10 @@ const App = () => {
               setUserData={setUserData}
             />
           </Route>
-          <Route exact path='/account'>
-            <Account 
+          <Route exact path='/messages'>
+            <Messages 
               token={token}
               userData={userData}
-              posts={posts}
             />
           </Route>
         </Switch>

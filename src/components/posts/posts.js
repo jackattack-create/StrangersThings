@@ -10,6 +10,7 @@ const searchedPosts = (post, searchTerm) => {
     location,
     title,
     author: { username },
+    // willDeliver
   } = post;
 
   const toMatch = [description, location, title, username];
@@ -32,6 +33,7 @@ const Posts = ({ posts }) => {
             <input 
               type='text'
               value={searchTerm}
+              placeholder="Search for something"
               onChange={(event) => {
                 console.log(event.target.value);
                 setSearchTerm(event.target.value);

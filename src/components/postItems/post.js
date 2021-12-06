@@ -13,7 +13,7 @@ const Post = ({post, history}) => {
         <h3 className="post-price">{post.price}</h3>
         <p className="post-location">Where: {post.location}</p>
         <p>{
-              post.willDeliever ? "Will Deliver" : "Pick up only"
+              post.willDeliver ? "Will Deliver" : "Pick up only"
           }</p>
         <p className="post-desc">{post.description}</p>
         <button

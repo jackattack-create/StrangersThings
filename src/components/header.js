@@ -8,18 +8,18 @@ const SiteHeader = ({token}) => {
                 <nav>
                     { token ? ( <>
                         <Link to={`/posts`}>
-                        <a href="#">Home</a>
+                        <a>Home</a>
                     </Link>
                     <Link to={`/posts/new`}>
-                        <a href="#">New Post</a>
+                        <a>New Post</a>
                     </Link>
                     
-                    <Link to={`/account`}>
-                        <a href="#">Account</a>   
+                    <Link to={`/messages`}>
+                        <a>Messages</a>   
                     </Link>
                     </>) : (
                         <Link to={`/signIn`}>
-                            <a href="#">Sign In</a> 
+                            <a>Sign In</a> 
                         </Link>
                     )
                     }
