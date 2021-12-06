@@ -13,13 +13,14 @@ const SinglePost = ({ posts, token, userData }) => {
 
   const deletePost = async (event) => {
     try {
-      const { data: {post} } = await callAPI({
-        url: '/posts/${postId}',
+      const { data: {post}, } = await callAPI({
+        url: `/posts/${postId}`,
         method: "DELETE",
         token,
       });
+      History.push('/posts')
     } catch (error) {
-      console.log("error delteing post", error)
+      console.log("error deleting post", error)
     }
     
   };
@@ -56,6 +57,7 @@ const SinglePost = ({ posts, token, userData }) => {
                 </Link>
               ) : ''}
               </>
+              <button>Message Seller</button>
             </div>
           </div>
         </section>

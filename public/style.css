@@ -25,14 +25,14 @@
 
 .site-header nav {
   display: flex;
-  width: 450px;
+  max-width: 400px;
   justify-content: space-evenly;
   /* justify-content: center; */
   /* align-items: center; */
 }
 
 .site-header nav a {
-  width:150px;
+  width:100px;
   /* padding-left: 5px; */
   display: flex;
   text-decoration: none;
